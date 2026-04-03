@@ -1,0 +1,32 @@
+# Models configuration for AIFluent.
+# Local Ollama-backed models are auto-detected from the installed manifest store.
+models:
+  - name: "qwen3-coder"
+    type: "ollama"
+    path: "auto"
+    capabilities:
+      - reasoning
+      - code-generation
+      - tool-calling
+    priority: 10
+
+  - name: "llama4"
+    type: "ollama"
+    path: "auto"
+    capabilities:
+      - reasoning
+      - code-generation
+    priority: 8
+
+  - name: "phi4"
+    type: "ollama"
+    path: "auto"
+    capabilities:
+      - reasoning
+      - code-generation
+    priority: 6
+
+settings:
+  voting_threshold: 0.6       # MoE decision threshold for refactoring
+  max_active_models: 3        # Limit simultaneous loaded models
+  auto_detect_vram: true
